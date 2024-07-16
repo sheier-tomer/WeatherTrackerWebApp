@@ -1,4 +1,3 @@
-# weather/views.py
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -82,3 +81,21 @@ def get_air_quality(request):
         return Response(air_quality_data)
     else:
         return Response({'error': 'Could not retrieve air quality data'}, status=air_quality_response.status_code)
+    
+
+@api_view(['GET'])
+def get_location_suggestions(request):
+    query = request.GET.get('query')
+    if not query:
+        return Response({'error': 'Query parameter is required'}, status=400)
+
+    api_key = settings.WEATHER_API_KEY
+    url = f'http://api.openweathermap.org/geo/1.0/direct?q={query}&limit=5&appid={api_key}'
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        suggestions = response.json()
+        return Response(suggestions)
+    else:
+        return Response({'error': 'Could not retrieve location suggestions'}, status=response.status_code)
+
