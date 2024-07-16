@@ -1,0 +1,18 @@
+.forecast{
+    margin-top: 50px;
+    background-color: rgb(227, 227, 227);
+    box-shadow: 0 0 400px 0 rgba(0, 0, 0, .2);
+
+}
+
+.forecast-container{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.forecast-item{
+    margin: 15px 15px;
+    align-items: center;
+
+}
