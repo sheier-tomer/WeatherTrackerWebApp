@@ -5,6 +5,11 @@ import requests
 from .models import Weather, AirQuality
 from django.conf import settings
 
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Welcome to the home page!")
+
 @api_view(['GET', 'POST'])
 def get_weather(request):
     if request.method == 'POST':
