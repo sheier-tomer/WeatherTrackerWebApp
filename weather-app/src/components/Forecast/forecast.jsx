@@ -12,10 +12,10 @@ const Forecast = () => {
     const fetchWeather = async () => {
         try {
             // The URL in the following two lines should be updated to the URL of the API Gateway endpoint
-            const weatherResponse = await axios.post('http://3.136.177.50/api/weather/', { location });
+            const weatherResponse = await axios.post('http:/api/weather/', { location });
             setWeatherData(weatherResponse.data);
 
-            const airQualityResponse = await axios.post('http://3.136.177.50/api/air_quality/', { location });
+            const airQualityResponse = await axios.post('http://api/air_quality/', { location });
             setAirQualityData(airQualityResponse.data);
             
             setError(null);

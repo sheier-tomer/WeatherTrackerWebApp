@@ -4,7 +4,6 @@ from rest_framework.decorators import api_view
 import requests
 from .models import Weather, AirQuality
 from django.conf import settings
-
 from django.http import HttpResponse
 
 def home(request):

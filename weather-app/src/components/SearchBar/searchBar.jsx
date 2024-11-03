@@ -9,7 +9,7 @@ const SearchBar = ({ location, setLocation, fetchWeather }) => {
     const fetchSuggestions = async (query) => {
         if (query.length > 2) {
             try {
-                const response = await axios.get('http://3.136.177.50/api/location_suggestions/', { params: { query } });
+                const response = await axios.get('http:/api/location_suggestions/', { params: { query } });
                 setSuggestions(response.data);
             } catch (err) {
                 setSuggestions([]);
